@@ -1,0 +1,74 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  background-color: #0f172a; /* Slate Dark */
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+h1 { color: #818cf8; margin-bottom: 5px; }
+header p { color: #94a3b8; margin-bottom: 30px; }
+
+.pet-form {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #334155;
+  margin-bottom: 40px;
+}
+
+.pet-form input[type="text"], .pet-form input[type="number"] {
+  padding: 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: white;
+  border-radius: 6px;
+}
+
+.vax-check { display: flex; align-items: center; justify-content: space-between; font-size: 0.9rem; }
+
+button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pet-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 15px;
+  border: 1px solid #334155;
+}
+
+.status {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.vax { background: #065f46; color: #34d399; }
+.no-vax { background: #7f1d1d; color: #f87171; }
