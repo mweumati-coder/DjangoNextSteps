@@ -12,7 +12,7 @@ function App() {
 
   const fetchPets = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/pets/');
+      const res = await axios.get('https://djangonextsteps.onrender.com/api/pets/');
       setPets(res.data);
     } catch (err) { console.error("Is Django running on port 8000?"); }
   };
