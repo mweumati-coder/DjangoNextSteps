@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-77+060%$3l&_9(@2=o#_9e95l!b^0=lgh6^4(cz=(p0poz*jg6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # Allowed for all hosts including Vercel and local
 
 
 # Application definition
@@ -80,10 +80,16 @@ WSGI_APPLICATION = 'pet_project.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # Use SQLite locally, but Postgres on Render
+# Use SQLite locally, but Postgres on Render/Vercel
+# Fallback to local sqlite3 if DATABASE_URL is not provided
+# I'm hardcoding the Supabase url for simplicity right now
+supabase_url = 'postgresql://postgres:VtHMg0nMWKYXgfrx@db.lqpojsywstmofueolpyw.supabase.co:5432/postgres'
+
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
+        default=supabase_url,
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
