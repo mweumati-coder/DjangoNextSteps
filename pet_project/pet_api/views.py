@@ -6,3 +6,8 @@ from .serializers import PetSerializer
 class PetListCreate(generics.ListCreateAPIView):
     queryset = Pet.objects.all()
     serializer_class = PetSerializer
+
+# This handles retrieving, updating, and deleting a single pet by ID
+class PetDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Pet.objects.all()
+    serializer_class = PetSerializer
