@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',  # <-- Add this if it's missing!
+    'rest_framework', 
     'pet_api',
 ]
 
