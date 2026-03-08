@@ -28,19 +28,26 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // For testing, sending to localhost. You should use a dynamic API_URL in prod.
-      await axios.post('http://127.0.0.1:8000/api/pets/', formData);
+      await axios.post('https://my-pet-api.vercel.app/api/pets/', formData);
       setFormData({ name: '', pet_type: '', breed: '', age: '', is_vaccinated: false });
       fetchPets();
     } catch (error) {
-      console.error("Failed to add pet:", error);
+      console.warn("Could not post to prod URL. Trying local...");
+      try {
+        await axios.post('http://127.0.0.1:8000/api/pets/', formData);
+        setFormData({ name: '', pet_type: '', breed: '', age: '', is_vaccinated: false });
+        fetchPets();
+      } catch (localError) {
+        console.error("Failed to add pet locally:", localError);
+        alert("Failed to save pet! Ensure your Django server is running on port 8000.");
+      }
     }
   };
 
   return (
     <div className="container">
       <header>
-        <h1>🐾 Mweu's Pet Shelter</h1>
+        <h1>Mweu's Pet Shelter</h1>
         <p>Full-Stack Django + React System</p>
       </header>
 
@@ -65,7 +72,7 @@ function App() {
           <input 
             type="text"
             placeholder="Breed (Optional)" 
-            value={formData. breed} 
+            value={formData.breed} 
             onChange={e => setFormData({...formData, breed: e.target.value})} 
           />
           <input 
