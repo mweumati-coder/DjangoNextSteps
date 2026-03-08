@@ -48,7 +48,6 @@ function App() {
     <div className="container">
       <header>
         <h1>Mweu's Pet Shelter</h1>
-        <p>Full-Stack Django + React System</p>
       </header>
 
       <form onSubmit={handleSubmit} className="pet-form">
