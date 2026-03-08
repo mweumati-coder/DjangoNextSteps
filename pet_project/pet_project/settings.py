@@ -86,11 +86,10 @@ WSGI_APPLICATION = 'pet_project.wsgi.application'
 supabase_url = 'postgresql://postgres:VtHMg0nMWKYXgfrx@db.lqpojsywstmofueolpyw.supabase.co:5432/postgres'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=supabase_url,
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
