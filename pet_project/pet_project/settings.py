@@ -85,14 +85,11 @@ WSGI_APPLICATION = 'pet_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pet_db',           # The database name you created in MySQL
-        'USER': 'root',             # Your MySQL username (default: root)
-        'PASSWORD': '',             # Your MySQL password
-        'HOST': 'localhost',        # MySQL server host
-        'PORT': '3306',             # MySQL default port
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+        'NAME': 'pet_db',
+        'USER': 'root',
+        'PASSWORD': '',  # Keep this empty for XAMPP
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
