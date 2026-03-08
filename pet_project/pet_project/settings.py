@@ -79,16 +79,20 @@ WSGI_APPLICATION = 'pet_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# Use SQLite locally, but Postgres on Render
-# Use SQLite locally, but Postgres on Render/Vercel
-# Fallback to local sqlite3 if DATABASE_URL is not provided
-# I'm hardcoding the Supabase url for simplicity right now
-supabase_url = 'postgresql://postgres:VtHMg0nMWKYXgfrx@db.lqpojsywstmofueolpyw.supabase.co:5432/postgres'
-
+# MySQL database configuration
+# Make sure MySQL Server is running and the database 'pet_db' has been created:
+#   CREATE DATABASE pet_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pet_db',           # The database name you created in MySQL
+        'USER': 'root',             # Your MySQL username (default: root)
+        'PASSWORD': '',             # Your MySQL password
+        'HOST': 'localhost',        # MySQL server host
+        'PORT': '3306',             # MySQL default port
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
