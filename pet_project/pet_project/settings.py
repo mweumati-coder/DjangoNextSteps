@@ -1,3 +1,9 @@
+try:
+    import pymysql
+    pymysql.install_as_MySQLdb()
+except Exception:
+    pass
+
 import dj_database_url
 import os
 

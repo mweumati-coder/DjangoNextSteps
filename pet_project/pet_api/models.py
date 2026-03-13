@@ -10,7 +10,7 @@ class Pet(models.Model):
     age = models.IntegerField()
     description = models.TextField(blank=True, null=True)
     is_vaccinated = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True) # <-- Fixed the typo here!
+    created_at = models.DateTimeField(auto_now_add=True) 
 
     def __str__(self):
         return self.name
