@@ -57,7 +57,7 @@ const MultiStepForm = ({ fetchPets }) => {
   return (
     <div className="container fade-in">
       <header>
-        <h1>📥 New Registration</h1>
+        <h1>Mweu's Pet Shelter</h1>
         <div className="progress-container">
           <div className="progress-bar" style={{ width: `${(step/3)*100}%` }}></div>
           <span className="step-text">Step {step} of 3</span>
@@ -69,7 +69,7 @@ const MultiStepForm = ({ fetchPets }) => {
           <div className="form-step">
             <h3>Identity Basics</h3>
             <input placeholder="Pet Name" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-            <input placeholder="Species (e.g., Dog, Dragon)" value={formData.pet_type} onChange={e => setFormData({...formData, pet_type: e.target.value})} />
+            <input placeholder="Species (e.g., Dog, Cat, Rabbit)" value={formData.pet_type} onChange={e => setFormData({...formData, pet_type: e.target.value})} />
             <button className="nav-button" onClick={nextStep} disabled={!formData.name || !formData.pet_type}>Next Profile Details →</button>
           </div>
         )}
@@ -95,7 +95,7 @@ const MultiStepForm = ({ fetchPets }) => {
             </label>
             <div className="button-row">
               <button className="nav-button secondary" onClick={prevStep}>← Back</button>
-              <button className="nav-button finish-btn" onClick={handleSubmit}>✅ Complete & Save</button>
+              <button className="nav-button finish-btn" onClick={handleSubmit}>Complete & Save</button>
             </div>
           </div>
         )}
