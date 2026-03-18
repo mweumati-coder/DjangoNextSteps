@@ -9,7 +9,7 @@ const Dashboard = ({ pets }) => (
     <header>
       <h1>Resident Dashboard</h1>
       <p>Current Shelter Occupancy: {pets.length}</p>
-      <Link to="/add" className="nav-button primary-btn">➕ Register New Pet</Link>
+      <Link to="/add" className="nav-button primary-btn">Register New Pet</Link>
     </header>
 
     <div className="pet-list">
@@ -46,7 +46,8 @@ const MultiStepForm = ({ fetchPets }) => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post('http://127.0.0.1:8000/api/pets/', formData);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+      await axios.post(`${apiUrl}/api/pets/`, formData);
       fetchPets();
       navigate('/'); // Redirect to dashboard after success
     } catch (err) {
@@ -111,7 +112,8 @@ function App() {
 
   const fetchPets = async () => {
     try {
-      const res = await axios.get('http://127.0.0.1:8000/api/pets/');
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+      const res = await axios.get(`${apiUrl}/api/pets/`);
       setPets(res.data);
     } catch (err) { console.error("Database connection failed."); }
   };

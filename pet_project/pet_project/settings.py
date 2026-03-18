@@ -76,6 +76,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pet_project.wsgi.application'
 
 
+import dj_database_url
+
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
@@ -93,6 +95,9 @@ DATABASES = {
     }
 }
 
+# Override with cloud database URL if provided by Vercel/production environment
+if os.environ.get('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
