@@ -1,15 +1,15 @@
 {
     "builds": [
         {
-            "src": "pet_project/wsgi.py",
+            "src": "wsgi.py",
             "use": "@vercel/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "pet_project/wsgi.py"
+            "dest": "wsgi.py"
         }
     ],
-    "installCommand": "bash build.sh"
+    "installCommand": "sh build.sh"
 }
