@@ -11,5 +11,5 @@
             "dest": "pet_project/wsgi.py"
         }
     ],
-    "installCommand": "pip install -r pet_project/requirements.txt"
+    "installCommand": "pip install -r pet_project/requirements.txt --break-system-packages"
 }
